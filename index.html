@@ -14,12 +14,46 @@
     <link rel="stylesheet" href="./styles/animations.css" />
   </head>
   <body class="page">
-    <header class="header"></header>
-    <main>
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39">
-        <use href="./svg/floppy.svg#floppy"/>
-      </svg> -->
-      <p>ffdfsdfsdfsdf</p>
+    <header class="header responsive-size-block">
+      <span class="header__logo">&lt;/Html&gt;</span>
+      <h1 class="header__title">закрывающий тег</h1>
+    </header>
+    <main>      
+      <section class="sprints responsive-size-block">
+        <ul class="sprints__card-list">
+          <li class="sprints__card-list-item">
+            <article class="card">
+              <h2 class="card__title">Фритрек и нулевой спринт: Подготовка к работе</h2>
+              <div class="card__image-wrapper">
+                <img class="card__image" src="./images/car-1.jpg" alt="" loading="lazy">
+                <span class="card__label">&lt;/Html&gt;</span>
+              </div>
+              <div class="card__content">
+                <p class="card__text">
+                  Это было самое начало пути. На этом этапе важно было проникнуться основами и настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше будущее.
+                </p>
+                <p class="card__text">
+                  Место для ваших воспоминаний о начале обучения.
+                </p>
+                <div class="card__actions">
+                  <button type="button" class="button card__icon-button">
+                    <img class="like-icon" src="./svg/heart.svg"/>
+                  </button>
+                  <button type="button" class="button card__like-button">
+                    <span class="button__text">Like</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <button class="button" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 39 39">
+            <use href="./svg/floppy.svg#floppy"/>
+          </svg>
+          <span class="button__text">Сохранить на память</span>
+        </button>
+      </section>
     </main>
     <script src="./scripts/like.js"></script>
   </body>
