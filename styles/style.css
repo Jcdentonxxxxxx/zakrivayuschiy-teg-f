@@ -34,7 +34,7 @@
   flex-direction: column;
   align-items: center;
   margin-block-end: 98px;
-  outline: 2px solid #000;
+  outline: 2px solid var(--accent-color, #000);
   padding-inline: clamp(1rem, -1.3438rem + 10vw, 7.65625rem);
   padding-block: clamp(7.625rem, 7.4489rem + 0.7512vw, 8.125rem);
   font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
@@ -65,7 +65,7 @@
 }
 
 .card {
-  outline: 2px solid #000;
+  outline: 2px solid var(--accent-color, #000);
   background-color: #fff;
 }
 
@@ -78,8 +78,8 @@
 
 .card__image-wrapper {
   position: relative;
-  border-block-start: 2px solid #000;
-  border-block-end: 2px solid #000;
+  border-block-start: 2px solid var(--accent-color, #000);
+  border-block-end: 2px solid var(--accent-color, #000);
 }
 
 .card__image {
@@ -122,7 +122,7 @@
 }
 
 .button {
-  border: 2px solid #000;
+  border: 2px solid var(--accent-color, #000);
   font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
   font-size: 14px;
   line-height: 0.9;
@@ -143,7 +143,7 @@
 }
 
 .card__icon-button:focus-visible {
-  outline: #000 solid 2px;
+  outline: var(--accent-color, #000) solid 2px;
 }
 
 .like-icon {
@@ -176,7 +176,7 @@
 }
 
 .save-dialog {
-  border: 2px solid #000;
+  border: 2px solid var(--accent-color, #000);
   padding-inline: 30px;
   padding-block: 30px;
   inline-size: 100%;
