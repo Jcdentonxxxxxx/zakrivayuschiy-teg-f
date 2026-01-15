@@ -11,45 +11,46 @@
 */
 
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+  padding-block-start: 100px;
+  padding-block-end: 100px;
   font-family: var(--main-font-family), sans-serif;
   font-size: 20px;
-  font-variation-settings: 'wght' var(--main-font-weight);
   background-color: #d3d3d3;
   background-image: var(--background-gradient);
   background-size: cover;
   background-attachment: fixed;
-  padding-block-start: 100px;
-  padding-block-end: 100px;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  font-variation-settings: 'wght' var(--main-font-weight, 410);
 }
 
 .responsive-size-block {
-  max-inline-size: var(--clamp-size-block);
   margin-inline: auto;
+  max-inline-size: var(--clamp-size-block);
 }
 
 .header {
-  font-family: var(--accent-font-family), system-ui;
-  background-color: #fff;
-  padding-block: clamp(7.625rem, 7.4489rem + 0.7512vw, 8.125rem);
-  padding-inline: clamp(1rem, -1.3438rem + 10vw, 7.65625rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-block-end: 98px;
+  outline: 2px solid #000;
+  padding-inline: clamp(1rem, -1.3438rem + 10vw, 7.65625rem);
+  padding-block: clamp(7.625rem, 7.4489rem + 0.7512vw, 8.125rem);
+  font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
+  background-color: #fff;
 }
 
-.header__logo {  
-  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+.header__logo {
   margin-block-end: 20px;
-  text-transform: uppercase;
   font-weight: 400;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
 }
 
 .header__title {
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-weight: 400;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   text-transform: uppercase;
 }
 
@@ -63,16 +64,16 @@
   gap: 50px;
 }
 
-.card {  
-  border: 2px solid #000;
+.card {
+  outline: 2px solid #000;
   background-color: #fff;
 }
 
 .card__title {
-  font-size: 18px;
-  font-variation-settings: 'wght' var(--accent-font-weight);
-  padding-block: 4px;
   padding-inline: 10px;
+  padding-block: 4px;
+  font-size: 18px;
+  font-variation-settings: 'wght' var(--accent-font-weight, 715);
 }
 
 .card__image-wrapper {
@@ -82,35 +83,35 @@
 }
 
 .card__image {
-  inline-size: 100%;
-  block-size: 100%;
   display: block;
   object-fit: cover;
-  margin-bottom: -2px;
+  inline-size: 100%;
+  block-size: 100%;
+  aspect-ratio: 1 / 1;
 }
 
 .card__label {
   position: absolute;
+  opacity: 0.5;
+  font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-shadow:
+  -1px 0 var(--color-text-stroke, #fff),
+  0 1px var(--color-text-stroke, #fff),
+  1px 0 var(--color-text-stroke, #fff),
+  0 -1px var(--color-text-stroke, #fff);
   inset-inline-end: 25px;
   inset-block-start: 25px;
-  font-family: var(--accent-font-family), system-ui;
-  text-transform: uppercase;
-  font-size: 14px;  
-  opacity: 0.5;
   mix-blend-mode: hard-light;
-  text-shadow:
-  -1px 0 var(--color-text-stroke), 
-  0 1px var(--color-text-stroke), 
-  1px 0 var(--color-text-stroke), 
-  0 -1px var(--color-text-stroke);
 }
 
 .card__content {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  padding-block: 25px;
   padding-inline: 25px;
+  padding-block: 25px;
   font-size: 18px;
 }
 
@@ -121,16 +122,106 @@
 }
 
 .button {
-  padding: 0;
   border: 2px solid #000;
-  font-family: var(--accent-font-family), system-ui;
-  cursor: pointer;
+  font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
+  font-size: 14px;
+  line-height: 0.9;
   background-color: #fff;
+  cursor: pointer;
 }
 
-@supports (-webkit-text-stroke: 1px var(--color-text-stroke)) {
+.card__icon-button {
+  border: none;
+  padding-inline: 5.5px;
+  padding-block: 7px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: #000 solid 2px;
+}
+
+.like-icon {
+  display: block;
+}
+
+.card__like-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  min-inline-size: 118px;
+  min-block-size: 38px;
+}
+
+.button-save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-inline: auto;
+  padding-inline: 15px;
+  padding-block: 17px;
+  letter-spacing: 0px;
+  min-block-size: 55px;
+  /* вроде хочется и через clamp сделать, но с другой стороны это затратно для браузера, когда много clamp вроде*/
+  /* inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem); */
+  inline-size: 100%;
+  max-inline-size: 335px;
+}
+
+.save-dialog {
+  border: 2px solid #000;
+  padding-inline: 30px;
+  padding-block: 30px;
+  inline-size: 100%;
+  max-inline-size: 353px;
+}
+
+.save-dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.5);
+}
+
+.save-dialog[open] {
+  display: grid;
+  grid-template-columns: 39px 1fr;
+  gap: 30px 20px;
+}
+
+.save-dialog__text {
+  font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.save-dialog__button-close {
+  grid-column: 2 span;
+  padding: 0 50px;
+  text-transform: uppercase;
+  min-block-size: 38px;
+}
+
+@supports (-webkit-text-stroke: 1px var(--color-text-stroke, #fff)) {
   .card__label {
-    -webkit-text-stroke: 1px var(--color-text-stroke);
     text-shadow: none;
+    -webkit-text-stroke: 1px var(--color-text-stroke, #fff);
+  }
+}
+
+@media (width <= 375px) {
+  .button-save {
+    flex-direction: column;
+    max-inline-size: 306px;
+  }
+
+  .save-dialog {
+    padding-inline: 40px;
+    max-inline-size: 341px;
   }
 }
