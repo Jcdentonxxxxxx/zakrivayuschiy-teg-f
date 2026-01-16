@@ -38,7 +38,7 @@
   padding-inline: clamp(1rem, -1.3438rem + 10vw, 7.65625rem);
   padding-block: clamp(7.625rem, 7.4489rem + 0.7512vw, 8.125rem);
   font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
-  background-color: #fff;
+  background-color: var(--main-background-color, #fff);
 }
 
 .header__logo {
@@ -66,7 +66,7 @@
 
 .card {
   outline: 2px solid var(--accent-color, #000);
-  background-color: #fff;
+  background-color: var(--main-background-color, #fff);
 }
 
 .card__title {
@@ -126,16 +126,42 @@
   font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
   font-size: 14px;
   line-height: 0.9;
-  background-color: #fff;
+  background-color: var(--main-background-color, #fff);
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color, #000);
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-color, #000);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: translateX(0%);
 }
 
 .card__icon-button {
-  border: none;
-  padding-inline: 5.5px;
-  padding-block: 7px;
+  padding-inline: 0;
+  padding-block: 0;
   background-color: transparent;
   cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  max-block-size: 38px;
 }
 
 .card__icon-button:focus {
@@ -143,11 +169,27 @@
 }
 
 .card__icon-button:focus-visible {
-  outline: var(--accent-color, #000) solid 2px;
+  border-color: var(--accent-color, #000);
 }
 
 .like-icon {
   display: block;
+}
+
+.heart {
+  transform-origin: center;
+}
+
+.like-icon.is-liked .heart {
+  animation: scale-heart 0.3s 0.1s ease-in;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon.is-liked .sparks {
+  animation: visible-sparks 0.3s 0.3s ease-in;
 }
 
 .card__like-button {
@@ -157,6 +199,17 @@
   padding: 0;
   min-inline-size: 118px;
   min-block-size: 38px;
+}
+
+.button__text {
+  position: relative;
+  color: var(--main-background-color, #fff);
+  mix-blend-mode: difference;
+}
+
+.button__icon {
+  fill: var(--main-background-color, #fff);
+  mix-blend-mode: difference;
 }
 
 .button-save {
@@ -169,8 +222,6 @@
   padding-block: 17px;
   letter-spacing: 0px;
   min-block-size: 55px;
-  /* вроде хочется и через clamp сделать, но с другой стороны это затратно для браузера, когда много clamp вроде*/
-  /* inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem); */
   inline-size: 100%;
   max-inline-size: 335px;
 }
@@ -184,12 +235,13 @@
 }
 
 .save-dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.5);
+  background-color: var(--accent-color, #000);
+  opacity: 0.5;
 }
 
 .save-dialog[open] {
   display: grid;
-  grid-template-columns: 39px 1fr;
+  grid-template-columns: min-content 1fr;
   gap: 30px 20px;
 }
 
