@@ -91,6 +91,34 @@
   aspect-ratio: 1 / 1;
 }
 
+.dark-saturate {
+  filter: brightness(50%) saturate(300%);
+}
+
+.more-contrast {
+  filter: contrast(150%);
+}
+
+.more-saturated {
+  filter: saturate(300%);
+}
+
+.invert-brightness {
+  filter: brightness(150%) invert(80%);
+}
+
+.hue-rotate {
+  filter: hue-rotate(245deg);
+}
+
+.sepia {
+  filter: sepia(45%);
+}
+
+.grayscale {
+  filter: grayscale(50%);
+}
+
 .card__label {
   position: absolute;
   opacity: 0.5;
@@ -118,6 +146,11 @@
 
 .card__text {
   line-height: 1.17;
+}
+
+.card__list {
+  list-style: circle;
+  padding-left: 20px;
 }
 
 .card__actions {
