@@ -21,7 +21,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: 'wght' var(--main-font-weight, 410);
+  font-variation-settings: "wght" var(--main-font-weight, 410);
 }
 
 .responsive-size-block {
@@ -37,7 +37,7 @@
   border: 2px solid var(--accent-color, #000);
   padding-inline: clamp(1rem, -1.3438rem + 10vw, 7.65625rem);
   padding-block: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem);
-  font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
+  font-family: var(--accent-font-family, "Press Start 2P"), system-ui;
   background-color: var(--main-background-color, #fff);
 }
 
@@ -46,6 +46,7 @@
   font-weight: 400;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 .header__title {
@@ -74,7 +75,7 @@
   padding-block: 4px;
   font-size: 18px;
   line-height: 1.223;
-  font-variation-settings: 'wght' var(--accent-font-weight, 715);
+  font-variation-settings: "wght" var(--accent-font-weight, 715);
 }
 
 .card__image-wrapper {
@@ -122,14 +123,14 @@
 .card__label {
   position: absolute;
   opacity: 0.5;
-  font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
+  font-family: var(--accent-font-family, "Press Start 2P"), system-ui;
   font-size: 14px;
   text-transform: uppercase;
   text-shadow:
-  -1px 0 var(--color-text-stroke, #fff),
-  0 1px var(--color-text-stroke, #fff),
-  1px 0 var(--color-text-stroke, #fff),
-  0 -1px var(--color-text-stroke, #fff);
+    -1px 0 var(--color-text-stroke, #fff),
+    0 1px var(--color-text-stroke, #fff),
+    1px 0 var(--color-text-stroke, #fff),
+    0 -1px var(--color-text-stroke, #fff);
   inset-inline-end: 25px;
   inset-block-start: 25px;
   mix-blend-mode: hard-light;
@@ -149,8 +150,8 @@
 }
 
 .card__list {
-  list-style: circle;
   padding-left: 20px;
+  list-style: circle;
 }
 
 .card__actions {
@@ -160,15 +161,15 @@
 }
 
 .button {
+  position: relative;
   border: 2px solid var(--accent-color, #000);
-  font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
+  overflow: hidden;
+  font-family: var(--accent-font-family, "Press Start 2P"), system-ui;
   font-size: 14px;
   line-height: 0.9;
   background-color: var(--main-background-color, #fff);
-  cursor: pointer;
   transition: box-shadow 0.3s ease;
-  overflow: hidden;
-  position: relative;
+  cursor: pointer;
 }
 
 .button:focus {
@@ -180,12 +181,12 @@
 }
 
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-color: var(--accent-color, #000);
-  transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
 }
 
 .button:hover::before {
@@ -193,12 +194,12 @@
 }
 
 .card__icon-button {
+  border: 2px solid transparent;
   padding-inline: 0;
   padding-block: 0;
   background-color: transparent;
-  cursor: pointer;
-  border: 2px solid transparent;
   transition: border-color 0.3s ease;
+  cursor: pointer;
   max-block-size: 38px;
 }
 
@@ -258,7 +259,7 @@
   margin-inline: auto;
   padding-inline: 10px;
   padding-block: 15px;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   inline-size: 100%;
   max-inline-size: 335px;
 }
@@ -272,8 +273,8 @@
 }
 
 .save-dialog::backdrop {
-  background-color: var(--accent-color, #000);
   opacity: 0.5;
+  background-color: var(--accent-color, #000);
 }
 
 .save-dialog[open] {
@@ -283,7 +284,7 @@
 }
 
 .save-dialog__text {
-  font-family: var(--accent-font-family, 'Press Start 2P'), system-ui;
+  font-family: var(--accent-font-family, "Press Start 2P"), system-ui;
   font-size: 14px;
   line-height: 1.5;
   text-transform: uppercase;
@@ -297,6 +298,7 @@
 }
 
 @supports (-webkit-text-stroke: 1px var(--color-text-stroke, #fff)) {
+
   .card__label {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--color-text-stroke, #fff);
@@ -304,6 +306,7 @@
 }
 
 @media (width <= 375px) {
+
   .button-save {
     flex-direction: column;
     max-inline-size: 306px;

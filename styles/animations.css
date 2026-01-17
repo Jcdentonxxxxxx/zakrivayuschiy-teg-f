@@ -59,6 +59,7 @@
 }
 
 @keyframes scale-heart {
+
   from {
     scale: 1;
   }
@@ -69,6 +70,7 @@
 }
 
 @keyframes visible-sparks {
+
   from {
     opacity: 0;
   }
