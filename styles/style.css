@@ -35,18 +35,19 @@
   align-items: center;
   margin-block-end: 98px;
   border: 2px solid var(--accent-color, #000);
-  padding-inline: clamp(1rem, -1.3438rem + 10vw, 7.65625rem);
+  padding-inline: 10px;
   padding-block: clamp(7.5rem, 7.3239rem + 0.7512vw, 8rem);
   font-family: var(--accent-font-family, "Press Start 2P"), system-ui;
   background-color: var(--main-background-color, #fff);
+  white-space: nowrap;
 }
 
 .header__logo {
   margin-block-end: 20px;
   font-weight: 400;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  text-transform: uppercase;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .header__title {
