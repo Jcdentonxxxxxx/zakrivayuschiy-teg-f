@@ -83,6 +83,8 @@
   position: relative;
   border-block-start: 2px solid var(--accent-color, #000);
   border-block-end: 2px solid var(--accent-color, #000);
+  margin-block: 0;
+  margin-inline: 0;
 }
 
 .card__image {
@@ -282,6 +284,10 @@
   display: grid;
   grid-template-columns: min-content 1fr;
   gap: 30px 20px;
+}
+
+.save-dialog__icon {
+  align-self: center;
 }
 
 .save-dialog__text {
